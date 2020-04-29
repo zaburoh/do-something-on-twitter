@@ -1,5 +1,5 @@
 const tweet = require('./lib/tweet');
-const myDate = require('./lib/date');
-let date = new myDate();
+const DateUtil = require('./lib/date_util');
+const dateUtil = new DateUtil();
 
-tweet(date.formatedDate());
+tweet(dateUtil.formatedDate());
