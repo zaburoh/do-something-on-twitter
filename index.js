@@ -3,7 +3,7 @@ const retweet = require('./lib/retweet');
 const search = require('./lib/search');
 const { timeline, outputTweets, recentTweet } = require('./lib/timeline');
 
-const flg = false;
+const flg = true;
 if(flg) {
   const target_screen_name = 'tocho_koho';
   timeline(target_screen_name, function(err, tweets) {
