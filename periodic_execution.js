@@ -1,8 +1,8 @@
-const tweet = require('./lib/tweet');
+const tweet = require('./lib/twitter/tweet');
 const DateUtil = require('./lib/util/date_util');
 const dateUtil = new DateUtil();
 const woeid = require('./woeid');
-const { place, getRandomTrend } = require('./lib/trends');
+const { place, getRandomTrend } = require('./lib/twitter/trends');
 
 let params = {
   id: woeid.Tokyo,
