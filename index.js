@@ -2,7 +2,7 @@ const tweet = require('./lib/tweet');
 const retweet = require('./lib/retweet');
 const { search, generateQuery } = require('./lib/search');
 const { timeline, outputTweets, recentTweet } = require('./lib/timeline');
-const DateUtil = require('./lib/date_util');
+const DateUtil = require('./lib/util/date_util');
 const dateUtil = new DateUtil();
 
 
