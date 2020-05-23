@@ -14,7 +14,7 @@
 - npmライブラリの dotenv で.envファイルに設定しているkey,secretを取得して設定
 
 ## woeid.js
-- yahoo!のwhere on earth 
+- yahoo!のwhere on earth id のリスト
 
 ## lib
 ### data
