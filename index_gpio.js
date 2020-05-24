@@ -3,7 +3,7 @@ const ReadSwitch = require('./lib/gpio/read_switch');
 const DateUtil = require('./lib/util/date_util');
 
 let readSwitch = new ReadSwitch();
-let pin = 17;
+let pin = process.argv[2];
 let direction = 'in';
 
 readSwitch.exportPin(pin)

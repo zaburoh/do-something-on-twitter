@@ -1,10 +1,17 @@
 # TwitterAPI、RaspberryPi gpio を利用した何かを作りたい。
 ## schedule-cron.js
 - pm2で起動している
-- cronを利用して15分事に指定したファイルを定期実行する
+- cronを利用して1時間ごとに指定したファイルを定期実行する
 
 ## periodic_execution.js
-- 東京のTwitterトレンドをランダムに選んでツイートしている
+- 東京のTwitterトレンドをランダムに選んでツイート
+
+## index_gpio.js
+- スイッチ入力テスト
+- コマンドラインからの実行
+```
+$ sudo node index_gpio [pin番号]
+```
 
 ## index.js
 - テストコード実行用
@@ -14,7 +21,7 @@
 - npmライブラリの dotenv で.envファイルに設定しているkey,secretを取得して設定
 
 ## woeid.js
-- yahoo!のwhere on earth id のリスト
+- yahoo!の"where on earth id"のリスト
 
 ## lib
 ### data
