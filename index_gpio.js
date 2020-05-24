@@ -1,6 +1,7 @@
 const tweet = require('./lib/twitter/tweet');
 const ReadSwitch = require('./lib/gpio/read_switch');
 const DateUtil = require('./lib/util/date_util');
+const raspberrypiStatus = require('./lib/util/raspberrypi_status');
 
 let readSwitch = new ReadSwitch();
 let pin = process.argv[2];
@@ -29,9 +30,21 @@ readSwitch.exportPin(pin)
             }
             if(state) {
               console.log('[pushed]' + pin);
-              tweet(new DateUtil().formatedDate() + '\n\n' + pin + '番のスイッチが押されました。' + '\n\n' + '#RaspberryPi4', function() {
-                iterate();
-              })
+              let message = new DateUtil().formatedDate() + '\n\n';
+              if(pin === '17') {
+                raspberrypiStatus.measure_temp((err, stdout) => {
+                  if(err) return console.log('[ERROR]', err);
+                  message +=  stdout + '\n\n' + '#RaspberryPi4'
+                  tweet(message, function() {
+                    iterate();
+                  });
+                })
+              } else {
+                message += pin + '番のスイッチが押されました。' + '\n\n' + '#RaspberryPi4'
+                tweet(message, function() {
+                  iterate();
+                });  
+              }
             } else {
               iterate();
             }
