@@ -34,13 +34,13 @@ readSwitch.exportPin(pin)
               if(pin === '17') {
                 raspberrypiStatus.measure_temp((err, stdout) => {
                   if(err) return console.log('[ERROR]', err);
-                  message +=  stdout + '\n\n' + '#RaspberryPi4'
+                  message +=  stdout + '\n\n';
                   tweet(message, function() {
                     iterate();
                   });
                 })
               } else {
-                message += pin + '番のスイッチが押されました。' + '\n\n' + '#RaspberryPi4'
+                message += pin + '番のスイッチが押されました。' + '\n\n';
                 tweet(message, function() {
                   iterate();
                 });  

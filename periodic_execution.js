@@ -11,6 +11,6 @@ let params = {
 place(params, function(err, trends) {
   if(err) return console.log(err);
   getRandomTrend(trends, function(trend) {
-    tweet(dateUtil.formatedDate() + '\n\n' + trend.name.replace(/#/, '') + 'かもしれない...\n\n' + '#RaspberryPi4');
+    tweet(dateUtil.formatedDate() + '\n\n' + trend.name.replace(/#/, '') + 'かもしれない...\n\n');
   })
 });
