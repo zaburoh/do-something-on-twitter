@@ -11,6 +11,9 @@
   "dependencies": {
     "cron": "^1.8.2",
     "dotenv": "^8.2.0",
+    "fitbit-api-wrapper": "0.0.2",
+    "mecab-async": "^0.1.2",
+    "moment": "^2.27.0",
     "request": "^2.88.2",
     "time": "^0.12.0",
     "twitter": "^1.7.1"

@@ -1,17 +1,22 @@
 # TwitterAPI、RaspberryPi gpio を利用した何かを作りたい。
-## schedule-cron.js
-- pm2で起動している
-- cronを利用して1時間ごとに指定したファイルを定期実行する
-
-## periodic_execution.js
-- 東京のTwitterトレンドをランダムに選んでツイート
-
-## index_gpio.js
-- スイッチ入力テスト
-- コマンドラインからの実行
+## １時間ごとに東京のトレンドをランダムにツイート
+### schedule-cron.js
+- pm2で動かしている
 ```
-$ sudo node index_gpio [pin番号]
+$ pm2 start schedule-cron.js
 ```
+- cronを利用して1時間ごとに'periodic_excution.js'を実行
+
+### periodic_execution.js
+- 東京のTwitterトレンドをランダムに選んで実行時間を併せてツイート
+
+## スイッチを押すとRaspberryPiのCPU温度をツイート
+### index_gpio.js
+- pm2で動かしている
+```
+$ pm2 start schedule-cron.js
+```
+- スイッチを押すと現在のRaspberryPiのCPU温度をツイートし、ledを3回点滅させている
 
 ## index.js
 - テストコード実行用
@@ -28,7 +33,15 @@ $ sudo node index_gpio [pin番号]
 - 未実装
 ### gpio
 - RaspberryPiのgpioを利用したコード群
+  - gpio.js
+    - gpioを制御するためのコード
 ### twitter
 - TwitterAPIサービスを利用したコード群
+  - favolite.js
+  - retweet.js
+  - search.js
+  - timeline.js
+  - trends.js
+  - tweet.js
 ### util
 - その他必要なコード群

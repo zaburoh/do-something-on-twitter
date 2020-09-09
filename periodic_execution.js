@@ -1,16 +1,20 @@
 const tweet = require('./lib/twitter/tweet');
-const DateUtil = require('./lib/util/date_util');
-const dateUtil = new DateUtil();
 const woeid = require('./woeid');
 const { place, getRandomTrend } = require('./lib/twitter/trends');
+const moment = require('moment');
 
-let params = {
-  id: woeid.Tokyo,
-  exclude: ''
+module.exports = {
+  params: {
+    id: woeid.Tokyo,
+    exclude: ''
+  },
+  trendTweet: function() {
+    place(this.params, function(err, trends) {
+      if(err) return console.log(err);
+      getRandomTrend(trends, function(trend) {
+        tweet(moment().format('YYYY-MM-DD HH:mm:ss') + '\n\n' + 'なんで' + trend.name.replace(/#/, '') + 'なんだろう...？\n\n');
+      })
+    });
+  }
+
 }
-place(params, function(err, trends) {
-  if(err) return console.log(err);
-  getRandomTrend(trends, function(trend) {
-    tweet(dateUtil.formatedDate() + '\n\n' + trend.name.replace(/#/, '') + 'かもしれない...\n\n');
-  })
-});
