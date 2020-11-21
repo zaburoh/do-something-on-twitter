@@ -12,7 +12,7 @@ module.exports = {
     place(this.params, function(err, trends) {
       if(err) return console.log(err);
       getRandomTrend(trends, function(trend) {
-        tweet(moment().format('YYYY-MM-DD HH:mm:ss') + '\n\n' + 'なんで' + trend.name.replace(/#/, '') + 'なんだろう...？\n\n');
+        tweet(moment().format('YYYY-MM-DD HH:mm:ss') + '\n\n' + 'なんで' + trend.name.replace(/#/, '') + 'がトレンドに入っているんだろう...？\n\n');
       })
     });
   }
